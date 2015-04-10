@@ -38,6 +38,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+      .state('app.ng-cordova', {
+        url: "/ng-cordova",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/ng-cordova-plugin.html",
+            controller: 'datePickerCtrl'
+          }
+        }
+      })
 
   .state('app.browse', {
     url: "/browse",
