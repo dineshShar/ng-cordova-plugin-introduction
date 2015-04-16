@@ -43,10 +43,8 @@ angular.module('starter.controllers', ['ngCordova'])
             {title: 'Cowbell', id: 6}
         ];
     })
-    .controller('datePickerCtrl', function ($scope, $cordovaDatePicker) {
+    .controller('datePickerCtrl', function ($scope, $cordovaDatePicker,$cordovaVibration) {
         $scope.datePicker = function(){
-
-            alert('hello');
             var options = {
                 date: new Date(),
                 mode: 'date', // or 'time'
@@ -60,13 +58,16 @@ angular.module('starter.controllers', ['ngCordova'])
             };
 
             document.addEventListener("deviceready", function () {
-
                 $cordovaDatePicker.show(options).then(function(date){
-                    alert(date);
+
                 });
 
             });
         }
+        $scope.vibration = function() {
+            $cordovaVibration.vibrate(100);
+        }
+
     })
 
     .controller('PlaylistCtrl', function ($scope, $stateParams) {
